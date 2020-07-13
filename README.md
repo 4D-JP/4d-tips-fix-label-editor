@@ -101,4 +101,4 @@ End if
 * フォーム名だけを指定した場合と設定ファイル（4lbp）でフォーム名を指定した場合で処理が分かれていない
 * マージンと間隔を計算に含めていない
 
-修正版のコンポーネントは[Releases/0.1.1](https://github.com/4D-JP/4d-tips-fix-label-editor/tree/0.1.1)からダウンロードすることができます。
+修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases)からダウンロードすることができます。
