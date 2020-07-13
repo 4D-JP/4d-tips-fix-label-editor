@@ -57,3 +57,15 @@ C_Print_label  → **My**_Print_label
 
 ``PRINT LABEL([Table_1])`` → ``My_OPEN_EDITOR(Table(->[Table_1]);False;$Txt_labelDocument)``  
 ``PRINT LABEL([Table_1];*)`` → ``$Lon_error:=My_Print_label(Table(->[Table_1]);"file:"+$Txt_labelDocument;"*")``  
+
+ストラクチャのComponentsフォルダーにインストールします。アプリケーション内にインストールされているオリジナルを入れ替えるのではない点に留意してください。
+
+#### コンポーネントのアップデート
+
+* v18R2以降
+
+必要に応じてプロジェクトの変更点を``git merge``します。
+
+* v18.x以前
+
+バイナリ版ストラクチャのコピーをv18に変換し，プロジェクト書き出して差分を比較するなど，手作業で変更点をマージする必要があります。
