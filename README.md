@@ -76,7 +76,29 @@ C_Print_label  → **My**_Print_label
 
 4D Labels（v18.253933）には，下記のような不具合があります。
 
-* フォームを指定してラベル印刷した場合，ラベルのレイアウト（行数・列数・マージン・水平垂直間隔）が反映されない。
-* ラベルが用紙の端で切れてしまう。
+* フォームを指定してラベル印刷した場合，ラベルのレイアウト（行数・列数・マージン・水平垂直間隔）が反映されない
+* ラベルが用紙の端で切れてしまう
 
-ソースコードを調べると，
+ソースコードを調べると，フォームを指定した場合，用紙サイズを元に整数を返す除算で行列の数を決めていることがわかります。
+
+```4d
+If ($Boo_form)
+	
+	  // Calculate columns & rows number according to the form dimensions
+	GET PRINTABLE AREA($Lon_height;$Lon_width)
+	GET PRINT OPTION(Orientation option;$Lon_orientation)
+
+Else
+
+	DOM GET XML ATTRIBUTE BY NAME($Dom_label;"columns";$Lon_columns)
+	DOM GET XML ATTRIBUTE BY NAME($Dom_label;"rows";$Lon_rows)
+
+End if 
+```
+
+**問題点**
+
+* フォーム名だけを指定した場合と設定ファイル（4lbp）でフォーム名を指定した場合で処理が分かれていない
+* マージンと間隔を計算に含めていない
+
+修正版のコンポーネントはReleases/0.1.0からダウンロードすることができます。
