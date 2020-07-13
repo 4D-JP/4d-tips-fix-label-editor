@@ -102,3 +102,5 @@ End if
 * マージンと間隔を計算に含めていない
 
 修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases)からダウンロードすることができます。
+
+変更点（v18R2プロジェクト）は[こちら](https://github.com/4D-JP/4D-Labels/commit/3fad8796d380110c0e79552878eed04857c08e7b)
