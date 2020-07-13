@@ -34,7 +34,7 @@ v17 R6/v18.xまでは，4D Forums/[4D Partners Worldwide](https://forums.4d.com/
 
 * v18R2以降
 
-GitHubのリポジトリを自分のアカウントにクローンします。
+GitHubのリポジトリを自分のアカウントにフォークします。
 
 * v18.x以前
 
