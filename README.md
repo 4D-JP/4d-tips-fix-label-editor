@@ -56,4 +56,4 @@ C_Print_label  → **My**_Print_label
 標準コマンドを使用する代わりに，直接エントリーポイントを呼び出すようにホストのメソッドを書き換えます。
 
 PRINT LABEL(\[Table_1\]) → My_OPEN_EDITOR(Table(->\[Table_1\]);False;$Txt_labelDocument)  
-PRINT LABEL(\[Table_1\]) → $Lon_error:=My_Print_label (Table(->\[Table_1\]);"file:"+$Txt_labelDocument;$Txt_option)  
+PRINT LABEL(\[Table_1\];*) → $Lon_error:=My_Print_label (Table(->\[Table_1\]);"file:"+$Txt_labelDocument;"*")  
