@@ -1,7 +1,7 @@
 # 4d-tips-fix-label-editor
 ラベルエディターコンポーネントをカスタマイズするには？
 
-#### ソースコードの入手
+#### ソースコードの場所
 
 4Dに組み込まれているエディターの中には，ソースコードが公開されているものがあります。
 
@@ -29,3 +29,27 @@ v17 R6/v18.xまでは，4D Forums/[4D Partners Worldwide](https://forums.4d.com/
 下記のコンポーネントは，4Dではなく，Vincent de Lachauxのリポジトリで公開されています。
 
 * [4D Pop](https://github.com/vdelachaux/4DPop)
+
+#### ソースコードの入手
+
+* v18R2以降
+
+GitHubのリポジトリを自分のアカウントにクローンします。
+
+* v18.x以前
+
+コンポーネントのソースコードをダウンロードします。
+
+#### ソースコードの改変
+
+ストラクチャまたはプロジェクトの名称を変更します。
+
+例：
+
+4D Labels → **My** Labels
+
+エントリーポイント（公開メソッド）の名称を変更します。
+
+C_OPEN_EDITOR  → **My**_OPEN_EDITOR  
+C_Print_label  → **My**_Print_label  
+
