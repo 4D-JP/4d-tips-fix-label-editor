@@ -134,3 +134,14 @@ SET PRINTABLE MARGIN(0;0;0;0)
 
 変更点（v18R2プロジェクト）は[こちら](https://github.com/4d/4D-Labels/compare/18RX...4D-JP:18RX)
 
+---
+
+### MEMO
+
+Rリリースのタイミングで上流も更新されているので，``commit``後，自動マージできない状況を避けるため
+
+```
+git merge upstream/18RX
+```
+
+すると良い。
