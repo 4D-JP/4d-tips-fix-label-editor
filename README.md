@@ -72,7 +72,7 @@ C_Print_label  → **My**_Print_label
 
 ---
 
-### ケーススタディ
+### ケーススタディ 1
 
 4D Labels（v18.253933）には，下記のような不具合があります。
 
@@ -101,6 +101,37 @@ End if
 * フォーム名だけを指定した場合と設定ファイル（4lbp）でフォーム名を指定した場合で処理が分かれていない
 * マージンと間隔を計算に含めていない
 
-修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases)からダウンロードすることができます。
+修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases/tag/0.1.2)からダウンロードすることができます。
 
 変更点（v18R2プロジェクト）は[こちら](https://github.com/4D-JP/4D-Labels/commit/3fad8796d380110c0e79552878eed04857c08e7b)
+
+### ケーススタディ 2
+
+4D Labels（v18.246707/R2以降）とv17 R6以前では，フォーム名を指定した場合の振る舞いが違います。
+
+* v17: ラベル印刷の開始位置は32-bit版と64-bit版で違う
+* v18: ラベル印刷の開始位置は32-bit版と64-bit版で同じ
+
+**参考**:
+[ACI0099882](https://github.com/4D-JP/4D-jp.github.io/blob/master/_posts/2020-01-16-release-note-version-18.md) 64ビット版のみ。印刷したラベルのレイアウトが32ビット版と違いました。32ビット版では3列14行のラベル設定が，64ビット版では，同一のフォーム・ページ設定・プリント設定なのに4列11行になりました。
+
+ソースコードをみると，v18では，32-bit版とラベルの開始位置を合わせるために，フォーム使用時は用紙のマージンとラベルのマージの両方を適用するようになっていることがわかります。以前は，用紙のマージンを``0``に変更し，ラベルのマージンだけを適用していました。
+
+```4d
+SET PRINTABLE MARGIN(0;0;0;0)
+```
+
+開始位置をv17（64-bit）に合わせるためにはどうすれば良いでしょうか。
+
+コマンド呼び出し前に``SET PRINTABLE MARGIN(0;0;0;0)``することはできません。フォームを指定した場合，ラベルのマージンは``GET PRINTABLE MARGIN``で決定するため。先にマージンを変更してしまうと，両方とも``0``になってしまうためです。
+
+コンポーネントを改造し，[``SET PRINT OPTION``](https://doc.4d.com/4Dv18/4D/18/GET-PRINT-OPTION.301-4505802.ja.html)の``Legacy printing layer option``でモードを切り替えるようにしました。
+
+* ``1``: v18の動作（32-bitに合わせる）
+* ``0``（デフォルト）: v17 R6以前の動作（32-bitに合わせない）
+
+修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases/tag/0.1.3)からダウンロードすることができます。
+
+変更点（v18R2プロジェクト）は[こちら]()
+
+
