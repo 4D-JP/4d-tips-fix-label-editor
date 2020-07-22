@@ -103,7 +103,7 @@ End if
 
 修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases/tag/0.1.2)からダウンロードすることができます。
 
-変更点（v18R2プロジェクト）は[こちら](https://github.com/4D-JP/4D-Labels/commit/3fad8796d380110c0e79552878eed04857c08e7b)
+変更点（v18R2プロジェクト）は[こちら](https://github.com/4d/4D-Labels/compare/18RX...4D-JP:18RX)
 
 ### ケーススタディ 2
 
@@ -132,6 +132,5 @@ SET PRINTABLE MARGIN(0;0;0;0)
 
 修正版のコンポーネントは[Releases](https://github.com/4D-JP/4d-tips-fix-label-editor/releases/tag/0.1.3)からダウンロードすることができます。
 
-変更点（v18R2プロジェクト）は[こちら]()
-
+変更点（v18R2プロジェクト）は[こちら](https://github.com/4d/4D-Labels/compare/18RX...4D-JP:18RX)
 
